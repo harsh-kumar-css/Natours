@@ -1,0 +1,189 @@
+.card{
+    perspective: 150rem;
+    position:relative;
+    height:52rem;
+
+    &__side{
+       height:52rem;
+       transition:all .8s ease;
+       position:absolute;
+       top:0;
+       left:0;
+       width:100%;
+       backface-visibility: hidden;
+       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+       overflow: hidden;
+
+       &--front{
+           border-radius:.5rem;
+        background-color:#fff;  
+       }
+
+       &--back{
+        border-radius:.5rem;
+        transform:rotateY(180deg) ;
+         
+        &-1{
+            background-image: linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark);
+        }
+        &-2{
+            background-image: linear-gradient(to right bottom,$color-primary-light,$color-primary-dark);
+        }
+        &-3{
+            background-image: linear-gradient(to right bottom,$color-tertiary-light,$color-tertiary-dark);
+        }
+       }
+    }
+       
+    &:hover &__side--front{
+        transform:rotateY(-180deg);
+    }
+    &:hover &__side--back{
+        transform:rotateY(0deg);
+    }
+
+
+    &__photo{
+            background-size: cover;
+            height:23rem;
+            background-blend-mode: screen;
+            -webkit-clip-path: polygon(0 0, 100% 0,100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0,100% 85%, 0 100%);
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+        &--1{
+            background-image: linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark),
+             url(../img/nat-5.jpg);
+
+        }
+        &--2{
+            background-image: linear-gradient(to right bottom,$color-primary-light,$color-primary-dark),
+             url(../img/nat-6.jpg);
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom,$color-tertiary-light,$color-tertiary-dark),
+             url(../img/nat-7.jpg);
+        }
+    }
+
+    &__heading{
+        text-transform: uppercase;
+        font-size:2.8rem;
+        font-weight:300;
+        position:absolute;
+        text-align: right;
+        color:#fff;
+        top:12rem;
+        right:4rem;
+        width:65%;
+
+    }
+
+    &__heading-span{
+            padding:1rem 1.5rem;
+            -webkit-box-decoration-break:clone;
+            box-decoration-break:clone;
+
+        &--1{
+            background-image: linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark);
+ 
+        }
+        &--2{
+            background-image: linear-gradient(to right bottom,$color-primary-light,$color-primary-dark);
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom,$color-tertiary-light,$color-tertiary-dark);
+        }
+    }
+
+    &__features{
+        
+        ul{
+            list-style: none;
+            font-size: 1.6rem;
+            padding: 2rem 0;
+            width: 60%;
+            margin:0 auto;
+            color: #000;
+            
+            li{
+                padding:1rem 0;
+                &:not(:last-child){
+                border-bottom:.5px solid rgba(119, 119, 119, 0.4);
+                }
+            }
+        }
+    }
+
+    &__pricing{
+
+        color:#fff;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width:90%;
+
+
+        &--first{
+             font-size: 1.5rem;
+        }
+
+        &--second{
+            font-size: 6rem;
+            font-weight: 300;
+            padding-bottom:7rem;
+        }
+       
+    }
+
+    @media(max-width:56.25em),
+        (hover:none){
+        
+        height:auto;
+        border-radius:3px;
+        background-color:#fff; 
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    
+        &__side{
+           height:auto;
+           position: relative;
+           box-shadow:none;
+    
+           &--back{
+            transform:rotateY(0deg) ;
+            clip-path:polygon(0 15%,100% 0,100% 100%,0 100%);
+             }
+           }
+
+           
+        &:hover &__side--front{
+            transform:rotateY(0deg);
+        }
+        &:hover &__side--back{
+            transform:rotateY(0deg);
+        }
+    
+    
+        &__pricing{
+    
+            position: relative;
+            top:0%;
+            left:0%;
+            transform: translate(0);
+            width:100%;
+            padding:7rem 4rem 4rem;
+    
+            &--first{
+                 font-size: 1.5rem;
+                 margin-bottom: 3rem;
+            }
+    
+            &--second{
+                font-size: 6rem;
+               
+            }
+        }
+    }
+}
+

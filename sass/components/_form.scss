@@ -1,0 +1,103 @@
+.form{
+
+    &__group:not(:last-child){
+         margin-bottom: 1rem;
+    }
+
+    &__text{
+         padding: 1.5rem 2rem;
+        font-family: inherit;
+        font-size: 1.5rem;
+        border-radius: 2px;
+        border:none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        margin-right:20px;
+        background-color: #fff;
+        display: block;
+        transition:all .3s;
+
+        @include respond(tab-port){
+            width:100%;
+        }
+        
+        &:focus{
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid $color-primary;
+
+            &:invalid{
+                border-bottom: 3px solid $color-secondary-dark;
+            }
+        }
+
+    }
+
+    &__label{
+        font-size: 1.2rem;
+        padding-left: 2rem;
+        margin-top: 1rem;
+        display: block;
+        transition: all .2s;
+    }
+
+    &__text:placeholder-shown + &__label{
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio{
+        width:49%;
+        display: inline-block;
+
+        @include respond(tab-port){
+            width:100%;
+            margin-bottom:1rem;
+        }
+
+        &-box{
+            opacity:0;
+        }
+
+        &-text{
+            cursor: pointer;
+            font-size:1.5rem;
+
+            .button-me{
+                transform: translateY(.8rem);
+                margin-right: 1rem;
+                height:3rem;
+                width:3rem;
+                border:5px solid $color-primary;
+                border-radius: 50%;
+                display:inline-block;
+                left:0;
+                top:0;
+                position: relative;
+
+                &::after{
+                    content:"";
+                    position: absolute;
+                    height:1.5rem;
+                    width:1.5rem;
+                    border:5px solid $color-primary;
+                    background-color:$color-primary ;
+                   top:50%;
+                   left: 50%;
+                   transform: translate(-50%,-50%);
+                    border-radius: 50%;
+                    display:block;
+                    opacity: 0;
+                    transition:all .2s;
+                }
+
+               
+            }
+        }
+    }
+
+    &__radio-box:checked ~ &__radio-text .button-me::after {
+        opacity: 1;
+    }
+}
